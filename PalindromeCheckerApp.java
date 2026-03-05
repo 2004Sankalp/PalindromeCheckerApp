@@ -1,57 +1,59 @@
 /**
  * ================================================================
- * MAIN CLASS - UseCase1PalindromeCheckerApp
+ * MAIN CLASS - UseCase2PalindromeCheckerApp
  * ================================================================
  *
- * Use Case 1: Application Entry & Welcome Message
+ * Use Case 2: Hardcoded Palindrome Validation
  *
  * Description:
- * This class represents the entry point of the
- * Palindrome Checker Management System.
+ * This class demonstrates basic palindrome validation
+ * using a hardcoded string value.
  *
- * At this stage, the application:
- * - Starts execution from the main() method
- * - Displays a welcome message
- * - Shows application name
- * - Shows application version
- *
- * No palindrome logic is implemented yet.
- *
- * The goal is to establish a clear startup flow.
+ * The application:
+ * - Stores a predefined string
+ * - Compares characters from both ends
+ * - Determines whether the string is a palindrome
+ * - Displays the result on the console
  *
  * @author Developer
- * @version 1.0
+ * @version 2.0
  */
 
 public class PalindromeCheckerApp {
 
     /**
-     * Application entry point.
-     *
-     * This is the first method executed by the JVM
-     * when the program starts.
+     * Application entry point for UC2.
      *
      * @param args Command-line arguments
      */
     public static void main(String[] args) {
 
-        // Application Name
-        String appName = "Palindrome Checker App";
+        // Hardcoded input string
+        String input = "madam";
 
-        // Application Version
-        String appVersion = "Version 1.0";
+        // Assume it is palindrome initially
+        boolean isPalindrome = true;
 
-        // Welcome Message
-        System.out.println("=========================================");
-        System.out.println("      Welcome to " + appName);
-        System.out.println("=========================================");
-        System.out.println("Application Details:");
-        System.out.println("Name    : " + appName);
-        System.out.println("Version : " + appVersion);
-        System.out.println("=========================================");
+        // Loop only till half of the string
+        for (int i = 0; i < input.length() / 2; i++) {
 
-        
-        System.out.println("System initialized successfully.");
-        System.out.println("Ready for next operation...");
+            // Compare characters from both ends
+            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Display Result
+        System.out.println("=================================");
+        System.out.println("Input String : " + input);
+
+        if (isPalindrome) {
+            System.out.println("Result : It is a PALINDROME");
+        } else {
+            System.out.println("Result : Not a palindrome");
+        }
+
+        System.out.println("=================================");
     }
 }
