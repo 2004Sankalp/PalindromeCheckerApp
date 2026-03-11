@@ -1,56 +1,26 @@
-/**
- * ================================================================
- * MAIN CLASS - UseCase4PalindromeCheckerApp
- * ================================================================
- *
- * Use Case 4: Character Array Based Validation
- *
- * Description:
- * This class validates a palindrome by converting
- * the string into a character array and comparing
- * characters using the two-pointer technique.
- *
- * @author Developer
- * @version 4.0
- */
+import java.util.Stack;
 
 public class PalindromeCheckerApp {
 
-    /**
-     * Application entry point for UC4.
-     *
-     * @param args Command-line arguments
-     */
     public static void main(String[] args) {
 
-        // Declare and initialize input string
-        String input = "radar";
+        String input = "noon";
+        Stack<Character> stack = new Stack<>();
 
-        // Convert string into character array
-        char[] chars = input.toCharArray();
+        for(char c : input.toCharArray()){
+            stack.push(c);
+        }
 
-        // Initialize pointers
-        int start = 0;
-        int end = chars.length - 1;
-
-        // Assume palindrome initially
         boolean isPalindrome = true;
 
-        // Compare characters until pointers cross
-        while (start < end) {
-
-            if (chars[start] != chars[end]) {
+        for(char c : input.toCharArray()){
+            if(c != stack.pop()){
                 isPalindrome = false;
                 break;
             }
-
-            // Move pointers
-            start++;
-            end--;
         }
 
-        // Display result
         System.out.println("Input : " + input);
-        System.out.println("Is Palindrome? : " + isPalindrome);
+        System.out.println("Is Palindrome? " + isPalindrome);
     }
 }
